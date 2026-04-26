@@ -1,0 +1,13 @@
+version: '3'
+services:
+  lanyard:
+    image: phineas/lanyard:latest
+    ports:
+      - "4001:4001"
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - REDIS_HOST=redis
+    depends_on:
+      - redis
+  redis:
+    image: redis:alpine
