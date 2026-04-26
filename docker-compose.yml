@@ -3,10 +3,11 @@ services:
   lanyard:
     image: phineas/lanyard:latest
     ports:
-      - "4001:4001"
+      - "${PORT:-4001}:4001"
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
-      - REDIS_HOST=redis
+      - REDIS_URL=${REDIS_URL}
+      - PORT=4001
     depends_on:
       - redis
   redis:
